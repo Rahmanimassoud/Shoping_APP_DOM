@@ -38,12 +38,13 @@ let cardItemsData = [{
 
 
 // store the data to show which specific item we have selected.
-let basket = [{}];
+let basket = JSON.parse(localStorage.getItem("data")) || [];
 
 
 const generateCard = ()=>{
     return shop.innerHTML = cardItemsData.map((element)=>{
         let {id, name, price, desc, img} = element;
+        let search = basket.find((element)=>element.id === id) || [];
         return `
         <div id=product-id-${id} class="item">
         <img width="300" src=${img} alt="Sneaker">
@@ -54,7 +55,7 @@ const generateCard = ()=>{
                 <h2 id="price">$ ${price}</h2>
                 <div class="price-button">
                     <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
-                    <div id=${id}  class="quantity">0</div>
+                    <div id=${id}  class="quantity">${search.item === undefined? 0: search.item}</div>
                     <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
                 </div>
             </div>
@@ -85,19 +86,31 @@ const increment = (id)=>{
     }
     // console.log(basket);
     update(selectedItem.id);
+
+    // adding/setting the data/increment number to local storage
+    localStorage.setItem("data", JSON.stringify(basket));
 }
 const decrement = (id)=>{
     let selectedItem = id;
     // console.log(selectedItem.id);
 
     let search = basket.find((element)=> element.id === selectedItem.id)
-    if(search.item === 0) return;
+    if(search === undefined) return;
+    else if(search.item === 0) return;
     else {
         search.item -= 1;
     }
-    // console.log(basket);
+
     update(selectedItem.id);
-}
+    // filter the local storage, so if there is no item selected, it should not store anything in the local storage. 
+    basket = basket.filter((element)=>element.item !==0)
+
+    
+    // adding/setting the data/decrement number to local storage
+    localStorage.setItem("data", JSON.stringify(basket));
+};
+
+
 const update = (id)=>{
     // search to see if the item is not included than change the number
     let search = basket.find((element)=> element.id === id);
@@ -112,6 +125,6 @@ const update = (id)=>{
 const calculateNumber = ()=>{
     let cartNumber = document.getElementById("cartAmount");
     // console.log(basket);
-    console.log(basket.map((e)=>e.item));
-
+    cartNumber.innerHTML = basket.map((e)=>e.item).reduce((e, i) => e + i, 0)
 };
+calculateNumber();
