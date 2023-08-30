@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+    width: 100%;
+    height: 100vh;
+}
+
+/* Navbar
+/* .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: teal;
+    color: rgb(230, 212, 212);
+    padding: 25px 50px;
+    margin-bottom: 20px;
+} */
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: teal;
+    color: rgb(230, 212, 212);
+    padding: 25px 50px;
+    margin-bottom: 20px;
+}
+.cart {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.cart img {
+    /* background-color: #fff; */
+} 
+.cart .cartAmount {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    /* background-color: red;  */
+    color: wheat;
+    font-size: x-large;
+
+} 
+.cart input {
+    background-color: black;
+    color: wheat;
+    padding: 1px;
+}
+.search_btn {
+    background-color: black;
+    color: wheat;
+    margin-right: 2px;
+} 
+
+
+/* Card Section */
+.shop {
+    display: grid;
+    grid-template-columns: repeat(4, 310px);
+    gap: 30px;
+    justify-content: center;
+}
+
+/*  Media Queries add this section once everything else is done/ it's complete*/ 
+/* @media (max-width: 500px){
+    .shop {
+        grid-template-columns: repeat(2, 310px);
+    }
+}
+@media (max-width: 1000px){
+    .shop {
+        grid-template-columns: repeat(1, 310px);
+    }
+} */
+
+.item {
+    border: 3px solid black;
+    border-radius: 2px;
+    padding: 2px;
+} 
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.price-quantity {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-button {
+    display: flex;
+    gap: 5px;
+}
+.bi-dash-lg {
+    color: rgb(249, 0, 0);
+    font-size: bolder;
+}
+.bi-plus-lg {
+    color: green;
+}
