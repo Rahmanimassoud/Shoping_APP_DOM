@@ -33,10 +33,13 @@ a {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: teal;
+    background-color: darkcyan;
     color: rgb(230, 212, 212);
     padding: 25px 50px;
     margin-bottom: 20px;
+    margin-top: 2px;
+    height: 13%;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 .cart {
     position: relative;
@@ -51,21 +54,28 @@ a {
     position: absolute;
     top: -5px;
     right: -5px;
-    /* background-color: red;  */
-    color: wheat;
+    color: rgb(245, 190, 88);
     font-size: x-large;
 
 } 
 .cart input {
     background-color: black;
     color: wheat;
-    padding: 1px;
+    height: 27px;
+    cursor: pointer;
+    
 }
 .search_btn {
     background-color: black;
     color: wheat;
     margin-right: 2px;
-} 
+    margin-right: 20px;
+    padding: 3px;
+    cursor: pointer;
+}
+#signIn {
+    cursor: pointer;
+}
 
 
 /* Card Section */
@@ -74,6 +84,7 @@ a {
     grid-template-columns: repeat(4, 310px);
     gap: 30px;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 /*  Media Queries add this section once everything else is done/ it's complete*/ 
@@ -91,8 +102,18 @@ a {
 .item {
     border: 3px solid black;
     border-radius: 2px;
-    padding: 2px;
-} 
+    padding: 4px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0); /* Start with no shadow */
+    transition: box-shadow 0.5s ease;
+}
+.item:hover {
+    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.5);
+}
+.item img {
+    width: 100%;
+    border-radius: 2px 2px 0 0;
+}
 .details {
     display: flex;
     flex-direction: column;
@@ -100,7 +121,6 @@ a {
 }
 .price-quantity {
     display: flex;
-    /* flex-direction: column; */
     justify-content: space-between;
     align-items: center;
 }
@@ -143,14 +163,20 @@ a {
     gap: 15px;
 }
 .cart-item {
-    border: 4px solid red;
+    border: 3px solid rgb(33, 31, 31);
     border-radius: 10px;
     display: flex;
+    padding: 3px;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    transition: box-shadow 0.5s ease;
+}
+.cart-item:hover {
+    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.5);
 }
 .title-price-x {
     display: flex;
     width: 200px;
-    /* border: 2px solid black; */
+    margin-left: 5px;
     align-items: center;
     justify-content: space-between;
 }

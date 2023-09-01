@@ -14,7 +14,7 @@ const generateCard = ()=>{
         let search = basket.find((element)=>element.id === id) || [];
         return `
         <div id=product-id-${id} class="item">
-        <img width="300" src=${img} alt="Sneaker">
+        <img width="300" src=${img} alt="picture not available">
         <div class="details">
             <h3>${name}</h3>
             <p>${desc}</p>
