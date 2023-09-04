@@ -87,8 +87,8 @@ a {
     margin-bottom: 30px;
 }
 
-/*  Media Queries add this section once everything else is done/ it's complete*/ 
-/* @media (max-width: 500px){
+/* Media Queries add this section once everything else is done/ it's complete*/ 
+@media (max-width: 500px){
     .shop {
         grid-template-columns: repeat(2, 310px);
     }
@@ -97,7 +97,7 @@ a {
     .shop {
         grid-template-columns: repeat(1, 310px);
     }
-} */
+}
 
 .item {
     border: 3px solid black;
@@ -215,10 +215,3 @@ a {
     cursor: pointer;
     margin-top: 10px;
 }
-
-/* AmountSection */
-/* .AmountSection {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-} */
