@@ -1,6 +1,6 @@
 
 
-// All Dummy
+//Dummy Data
 let cardItemsData = [
     {
     id: "jfhgbvnscs",

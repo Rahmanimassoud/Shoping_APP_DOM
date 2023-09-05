@@ -2,7 +2,6 @@
 
 let label = document.getElementById("label");
 let shoppingCart = document.getElementById("shoping-cart")
-// console.log(cardItemsData);
 
 // get the already stored data from local storage and show it in the cart page.
 let basket = JSON.parse(localStorage.getItem("data")) || [];

@@ -1,6 +1,7 @@
 
 
 let shop = document.getElementById("shop");
+let cookies = document.getElementById("cookie-policy")
 // console.log(shop);
 
 
@@ -52,16 +53,15 @@ const increment = (id)=>{
         search.item += 1;
     }
     // console.log(basket);
-    update(selectedItem.id);
+    update(selectedItem.id);  //run the update function
 
     // adding/setting the data/increment number to local storage
     localStorage.setItem("data", JSON.stringify(basket));
 }
 const decrement = (id)=>{
     let selectedItem = id;
-    // console.log(selectedItem.id);
-
     let search = basket.find((element)=> element.id === selectedItem.id)
+
     if(search === undefined) return;
     else if(search.item === 0) return;
     else {
@@ -69,11 +69,12 @@ const decrement = (id)=>{
     }
 
     update(selectedItem.id);
-    // filter the local storage, so if there is no item selected, it should not store anything in the local storage. 
+
+    // filter the basket to not store/show the item with value of 0, if item is 0, remove it. 
     basket = basket.filter((element)=>element.item !==0)
 
     
-    // adding/setting the data/decrement number to local storage
+    // adding/setting the data to local storage
     localStorage.setItem("data", JSON.stringify(basket));
 };
 
@@ -91,7 +92,11 @@ const update = (id)=>{
 
 const calculateNumber = ()=>{
     let cartNumber = document.getElementById("cartAmount");
-    // console.log(basket);
     cartNumber.innerHTML = basket.map((e)=>e.item).reduce((e, i) => e + i, 0)
 };
 calculateNumber();
+
+// remove the cookies 
+const accept = ()=>{
+    cookies.remove()
+}
